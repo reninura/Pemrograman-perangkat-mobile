@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="index.css">
+    <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <title>Tugas 2</title>
+    <script>
+        //Arrow function dan penggunaan variabel const
+        const Tarif = () => {
+            // penggunaan variabel let
+           let umur = document.getElementById('umur').value;
+           let tinggi = document.getElementById('tinggi').value;
+
+           //percabangan dengan if else dan penggunaan template literal
+           if(umur === ""){
+               return swal.fire('Anda Belum Memasukan umur dan tinggi')
+           }else {
+               if(umur < 1 && tinggi < 70) {
+                   return swal.fire('Dilarang Masuk')
+               }else if(umur >= 1 && umur <= 3 && tinggi < 70) {
+                   return swal.fire(`Tarif Anda Rp.${30000}`);
+               }else if(umur >= 2 && umur <= 3 && tinggi > 70) {
+                   //penggunaan template literal
+                   return swal.fire(`Tarif Anda Rp.${30000} + ${10000} = Rp.${30000 + 10000}`)
+               }else if(umur < 7 && tinggi < 120) {
+                   return swal.fire(`Tarif Anda Rp.${40000}`)
+               }else if(umur >= 4 && umur <= 7 && tinggi > 120) {
+                   return swal.fire(`Tarif Anda Rp.${40000} + Rp.${15000} = Rp.${40000 + 15000}`)
+               }else if(umur < 10 && tinggi < 150) {
+                   return swal.fire(`Tarif Anda Rp.${50000}`)
+               }else if(umur >= 8 && umur <= 10 && tinggi > 150) {
+                   return swal.fire(`Tarif Anda Rp.${50000} + Rp.${20000} = Rp.${50000 + 20000}`)
+               }else {
+                   return swal.fire(`Tarif Anda Rp.${80000}`)
+               }   
+           }
+           document.getElementById("result").innerHTML = umur;
+           document.getElementById("result").innerHTML = tinggi;
+        }
+    </script>
+</head>
+
+<body>
+    <div class="container">
+        <div class="card">
+            <div class="judul">
+                <h5>Program Tarif Harga Sesuai Umur</h5>
+                <hr>
+                <img src="cashback.png" alt="Tarif Harga">
+            </div>
+            <div class="content">
+                <form name="harga">
+                    <tr>
+                        <td>
+                            <p>Umur:</p>
+                            <input type="text" id="umur" placeholder="Masukan Umur Anda">
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <p>Tinggi:</p>
+                            <input type="text" id="tinggi" placeholder="Masukan Tinggi Anda">
+                        </td>
+                    </tr>
+                </form>
+            </div>
+            <hr>
+            <input type="button" onclick="Tarif()" value="Button">
+        </div>
+        <div class="sidebar">
+            <h4>TARIF HARGA WAHANA "DISNEY ISLAND" :</h4>
+            <hr>
+            <p>1. Umur kurang dari 1 tahun => Dilarang masuk</p>
+            <p>2. Umur kurang dari 3 tahun => Rp 30.000. (tinggi anak umur 2-
+                3 tahun melebih 70cm maka tarif akan bertambah 10.000)</p>
+            <p>3. Umur kurang dari 7 tahun => Rp 40.000.(tinggi anak umur 4-
+                7 tahun melebih 120cm maka tarif akan bertambah 15.000)</p>
+            <p>4. Umur kurang dari 7 tahun => Rp 40.000.(tinggi anak umur 4-
+                7 tahun melebih 120cm maka tarif akan bertambah 15.000)</p>
+            <p>5. Umur kurang dari 10 tahun => Rp 50.000.(tinggi anak umur 8-
+                10 tahun melebih 150cm maka tarif akan bertambah 20.000)</p>
+            <p>6. Umur 10 tahun keatas => Rp 80.000</p>   
+        </div>
+    </div>
+    <div class="footer">
+        <p>Created By Reni Nur Anggraeni</p>
+    </div>
+</body>
+</html>
